@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DS AGENCY - Digital Marketing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #2563eb, #06b6d4);
+    }
+    section {
+      padding: 40px 20px;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .card h3 {
+      color: #38bdf8;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #2563eb;
+      color: #fff;
+      cursor: pointer;
+    }
+    footer {
+      padding: 20px;
+      background: #020617;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>DS AGENCY</h1>
+  <p>Digital Marketing & Growth Solutions</p>
+</header>
+
+<section>
+  <h2>Our Services</h2>
+
+  <div class="services">
+    <div class="card">
+      <h3>SEO Optimization</h3>
+      <p>Rank your website on Google & get organic traffic.</p>
+      <button>Book Now</button>
+    </div>
+
+    <div class="card">
+      <h3>Social Media Marketing</h3>
+      <p>Grow your brand on Instagram, Facebook & YouTube.</p>
+      <button>Book Now</button>
+    </div>
+
+    <div class="card">
+      <h3>Google Ads</h3>
+      <p>High-converting paid ads for instant leads.</p>
+      <button>Book Now</button>
+    </div>
+
+    <div class="card">
+      <h3>Website Development</h3>
+      <p>Modern, fast & mobile-friendly websites.</p>
+      <button>Book Now</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 DS AGENCY | Digital Marketing Experts
+</footer>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+
+</body>
+</html>
+
 
