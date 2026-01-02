@@ -1,106 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>DS AGENCY - Digital Marketing</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>DS AGENCY – Digital Marketing Services</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- PWA -->
-  <link rel="manifest" href="manifest.json">
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Segoe UI,Arial;
+background:#020617;
+color:#fff;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #fff;
-      text-align: center;
-    }
-    header {
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #2563eb, #06b6d4);
-    }
-    section {
-      padding: 40px 20px;
-    }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 12px;
-    }
-    .card h3 {
-      color: #38bdf8;
-    }
-    button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      background: #2563eb;
-      color: #fff;
-      cursor: pointer;
-    }
-    footer {
-      padding: 20px;
-      background: #020617;
-      font-size: 14px;
-    }
-  </style>
+/* HEADER */
+header{
+padding:60px 20px;
+text-align:center;
+background:linear-gradient(135deg,#2563eb,#22d3ee);
+animation:fadeDown 1s ease;
+}
+header h1{font-size:38px;margin:0}
+header p{opacity:.9}
+
+/* SERVICES */
+section{padding:40px 20px}
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:22px;
+}
+.card{
+background:#0f172a;
+padding:22px;
+border-radius:16px;
+cursor:pointer;
+transition:.4s;
+position:relative;
+overflow:hidden;
+}
+.card::before{
+content:"";
+position:absolute;
+top:0;left:-100%;
+width:100%;height:100%;
+background:linear-gradient(120deg,transparent,#38bdf8,transparent);
+transition:.5s;
+}
+.card:hover::before{left:100%}
+.card:hover{
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 15px 40px rgba(56,189,248,.25);
+}
+.card h3{color:#38bdf8;margin:0 0 8px}
+.card p{font-size:14px;opacity:.85}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.8);
+z-index:99;
+}
+.modal-content{
+background:#020617;
+max-width:700px;
+margin:40px auto;
+padding:30px;
+border-radius:18px;
+animation:zoom .4s ease;
+}
+.close{
+float:right;
+font-size:22px;
+cursor:pointer;
+color:#f87171;
+}
+button{
+background:#2563eb;
+border:none;
+padding:12px 22px;
+border-radius:8px;
+color:#fff;
+font-size:15px;
+cursor:pointer;
+transition:.3s;
+}
+button:hover{background:#1d4ed8}
+
+footer{
+text-align:center;
+padding:16px;
+background:#020617;
+font-size:14px;
+opacity:.7;
+}
+
+/* ANIMATIONS */
+@keyframes fadeDown{
+from{opacity:0;transform:translateY(-40px)}
+to{opacity:1;transform:translateY(0)}
+}
+@keyframes zoom{
+from{transform:scale(.7);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>DS AGENCY</h1>
-  <p>Digital Marketing & Growth Solutions</p>
+<h1>DS AGENCY</h1>
+<p>Complete Digital Marketing & Growth Solutions</p>
 </header>
 
 <section>
-  <h2>Our Services</h2>
+<h2>Our Digital Marketing Services</h2>
 
-  <div class="services">
-    <div class="card">
-      <h3>SEO Optimization</h3>
-      <p>Rank your website on Google & get organic traffic.</p>
-      <button>Book Now</button>
-    </div>
+<div class="services">
 
-    <div class="card">
-      <h3>Social Media Marketing</h3>
-      <p>Grow your brand on Instagram, Facebook & YouTube.</p>
-      <button>Book Now</button>
-    </div>
+<div class="card" onclick="openService('seo')"><h3>SEO Optimization</h3><p>Rank higher on Google</p></div>
+<div class="card" onclick="openService('local')"><h3>Local SEO</h3><p>Dominate local searches</p></div>
+<div class="card" onclick="openService('smm')"><h3>Social Media Marketing</h3><p>Grow brand & followers</p></div>
+<div class="card" onclick="openService('ads')"><h3>Google Ads</h3><p>Instant leads & sales</p></div>
+<div class="card" onclick="openService('meta')"><h3>Meta Ads</h3><p>Facebook & Instagram Ads</p></div>
+<div class="card" onclick="openService('yt')"><h3>YouTube Marketing</h3><p>Video promotions</p></div>
+<div class="card" onclick="openService('content')"><h3>Content Marketing</h3><p>High quality content</p></div>
+<div class="card" onclick="openService('branding')"><h3>Branding</h3><p>Build strong identity</p></div>
+<div class="card" onclick="openService('web')"><h3>Website Development</h3><p>Fast & modern sites</p></div>
+<div class="card" onclick="openService('ui')"><h3>UI / UX Design</h3><p>User friendly design</p></div>
+<div class="card" onclick="openService('ecom')"><h3>E-Commerce Marketing</h3><p>Sell more online</p></div>
+<div class="card" onclick="openService('email')"><h3>Email Marketing</h3><p>Automated campaigns</p></div>
+<div class="card" onclick="openService('whatsapp')"><h3>WhatsApp Marketing</h3><p>Direct customer reach</p></div>
+<div class="card" onclick="openService('influencer')"><h3>Influencer Marketing</h3><p>Creator promotions</p></div>
+<div class="card" onclick="openService('video')"><h3>Video Marketing</h3><p>Reels & ads</p></div>
+<div class="card" onclick="openService('graphic')"><h3>Graphic Design</h3><p>Creative visuals</p></div>
+<div class="card" onclick="openService('orm')"><h3>Online Reputation</h3><p>Brand trust</p></div>
+<div class="card" onclick="openService('analytics')"><h3>Analytics & Tracking</h3><p>Data driven growth</p></div>
+<div class="card" onclick="openService('automation')"><h3>Marketing Automation</h3><p>Smart workflows</p></div>
+<div class="card" onclick="openService('consulting')"><h3>Digital Consulting</h3><p>Expert strategy</p></div>
 
-    <div class="card">
-      <h3>Google Ads</h3>
-      <p>High-converting paid ads for instant leads.</p>
-      <button>Book Now</button>
-    </div>
-
-    <div class="card">
-      <h3>Website Development</h3>
-      <p>Modern, fast & mobile-friendly websites.</p>
-      <button>Book Now</button>
-    </div>
-  </div>
+</div>
 </section>
 
+<!-- POPUP -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeService()">✖</span>
+<div id="serviceContent"></div>
+<br>
+<a href="https://forms.gle/nxeGNS62W84Y6puP7" target="_blank">
+<button>Book Now</button>
+</a>
+</div>
+</div>
+
 <footer>
-  © 2026 DS AGENCY | Digital Marketing Experts
+© 2026 DS AGENCY | Digital Growth Partner
 </footer>
 
 <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
-  }
+const data={
+seo:"<h2>SEO Optimization</h2><ul><li>Higher Google ranking</li><li>Organic traffic</li><li>Long-term leads</li></ul>",
+local:"<h2>Local SEO</h2><ul><li>Google Map ranking</li><li>Local customers</li></ul>",
+smm:"<h2>Social Media Marketing</h2><ul><li>Brand awareness</li><li>Audience engagement</li></ul>",
+ads:"<h2>Google Ads</h2><ul><li>Instant leads</li><li>High ROI</li></ul>",
+meta:"<h2>Meta Ads</h2><ul><li>Instagram & Facebook reach</li></ul>",
+yt:"<h2>YouTube Marketing</h2><ul><li>Video promotions</li></ul>",
+content:"<h2>Content Marketing</h2><ul><li>SEO friendly content</li></ul>",
+branding:"<h2>Branding</h2><ul><li>Strong brand identity</li></ul>",
+web:"<h2>Website Development</h2><ul><li>Fast & responsive</li></ul>",
+ui:"<h2>UI / UX Design</h2><ul><li>User experience focused</li></ul>",
+ecom:"<h2>E-Commerce Marketing</h2><ul><li>More sales</li></ul>",
+email:"<h2>Email Marketing</h2><ul><li>Automated emails</li></ul>",
+whatsapp:"<h2>WhatsApp Marketing</h2><ul><li>Direct customer reach</li></ul>",
+influencer:"<h2>Influencer Marketing</h2><ul><li>Trust building</li></ul>",
+video:"<h2>Video Marketing</h2><ul><li>High engagement</li></ul>",
+graphic:"<h2>Graphic Design</h2><ul><li>Creative visuals</li></ul>",
+orm:"<h2>Online Reputation</h2><ul><li>Positive brand image</li></ul>",
+analytics:"<h2>Analytics</h2><ul><li>Data based decisions</li></ul>",
+automation:"<h2>Marketing Automation</h2><ul><li>Save time & cost</li></ul>",
+consulting:"<h2>Digital Consulting</h2><ul><li>Expert guidance</li></ul>"
+};
+
+function openService(k){
+document.getElementById("serviceContent").innerHTML=data[k];
+document.getElementById("modal").style.display="block";
+}
+function closeService(){
+document.getElementById("modal").style.display="none";
+}
 </script>
 
 </body>
 </html>
-
-
